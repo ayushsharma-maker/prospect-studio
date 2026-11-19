@@ -1,0 +1,15 @@
+.venv
+.env
+.env.*
+client_secret*.json
+db/*.sqlite
+db/*token*.json
+outputs
+tests
+scripts
+.github
+.pytest_cache
+**/__pycache__
+requirements-dev.txt
+*.md
+!README.md
