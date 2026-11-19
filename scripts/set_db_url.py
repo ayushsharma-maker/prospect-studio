@@ -20,7 +20,7 @@ def ask_dialog() -> str:
     """A native macOS window with one hidden field, so the password never passes through a chat or log."""
     import subprocess
     script = ('display dialog "Paste your Supabase database password and click OK" '
-              'default answer "" with hidden answer with title "Outreach Desk setup" '
+              'default answer "" with hidden answer with title "Prospect Studio setup" '
               'buttons {"Cancel", "OK"} default button "OK"\n'
               'text returned of result')
     r = subprocess.run(["osascript", "-e", script], capture_output=True, text=True)

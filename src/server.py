@@ -1,4 +1,4 @@
-"""HTTP API + page for Outreach Desk. The same Handler runs locally (src/webapp.py) and on Vercel
+"""HTTP API + page for Prospect Studio. The same Handler runs locally (src/webapp.py) and on Vercel
 (api/index.py). Every request is self-contained: no background threads, no in-memory jobs.
 
 Auth: when APP_PASSWORD is set (always on Vercel), every /api call needs the session cookie from

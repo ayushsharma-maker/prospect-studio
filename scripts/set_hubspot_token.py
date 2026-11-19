@@ -15,7 +15,7 @@ ROOT = Path(__file__).resolve().parent.parent
 
 def ask() -> str:
     script = ('display dialog "Paste the HubSpot access token (starts with pat-) and click OK" '
-              'default answer "" with hidden answer with title "Outreach Desk: connect HubSpot" '
+              'default answer "" with hidden answer with title "Prospect Studio: connect HubSpot" '
               'buttons {"Cancel", "OK"} default button "OK"\n'
               'text returned of result')
     r = subprocess.run(["osascript", "-e", script], capture_output=True, text=True)

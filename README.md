@@ -1,4 +1,4 @@
-# Outreach Desk
+# Prospect Studio
 
 An evidence-based outbound system. Give it company domains (or let it find recent Series A–C raises in
 funding news) and for each one it:
@@ -15,6 +15,8 @@ funding news) and for each one it:
 6. **Learns**: ratings, edits and reply outcomes become lessons; only lessons you approve shape new drafts.
 
 Python standard-library HTTP server + one self-contained HTML page. Runs locally or on Vercel.
+
+**Live demo:** https://prospect-studio-pearl.vercel.app
 
 ## Deploy to Vercel (5 minutes)
 
@@ -45,22 +47,21 @@ Once `DATABASE_URL` is set, demo mode switches off automatically. Force it with 
 
 ### Scheduled reply checks
 
-`.github/workflows/reply-agent.yml` calls the app every 15 minutes. In GitHub → Settings → Secrets →
+A scheduled job (for example a GitHub Actions workflow, not included in this repository) can call the app every 15 minutes. In GitHub → Settings → Secrets →
 Actions, add `APP_URL` (your `https://…vercel.app`) and `CRON_SECRET` (same value as in Vercel).
 
 ## Push to GitHub
 
 ```bash
-cd outreach-desk
+cd prospect-studio
 git init -b main
 git add .
-git commit -m "Outreach Desk"
-gh repo create outreach-desk --private --source=. --push
+git commit -m "Prospect Studio"
+gh repo create prospect-studio --private --source=. --push
 # or: create an empty repo on github.com, then
-# git remote add origin https://github.com/<you>/outreach-desk.git && git push -u origin main
+# git remote add origin https://github.com/<you>/prospect-studio.git && git push -u origin main
 ```
 
-CI (`.github/workflows/ci.yml`) runs the test suite on every push.
 
 ## Run locally
 
@@ -108,3 +109,16 @@ Command-line pipeline (no web app):
 | robots.txt respected; CAPTCHAs and logins never bypassed | `research/fetch.py` |
 | Actions needing a missing integration fail with a fixable message (HTTP 503) | `server.require` |
 | Security headers, CSP, 1 MB body limit, login rate limit, HttpOnly signed session | `server.Handler` |
+
+## Credits
+
+Prospect Studio is built on [Outreach Desk](https://github.com/SrishivPatroMesa/outreach-desk) by
+Srishiv Patro, which provides the research, qualification, drafting and reply-agent pipeline.
+
+Changes in this version, by Ayush Sharma:
+
+- A complete visual redesign of the web app (`src/web/index.html`): new colour system with light and
+  dark themes, floating glass sidebar and top bar, card-based pipeline stats, gradient accents, new
+  typography, rounded controls and page transitions.
+- Renamed and rebranded to Prospect Studio, with a new logo and favicon.
+- Deployed as its own Vercel project.

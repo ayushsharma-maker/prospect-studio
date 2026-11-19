@@ -1,4 +1,4 @@
-"""Run Outreach Desk locally:
+"""Run Prospect Studio locally:
 
     .venv/bin/python -m src.webapp            # then open http://127.0.0.1:8765
 
@@ -22,7 +22,7 @@ class LocalHandler(Handler):
 def main():
     load_env()
     srv = ThreadingHTTPServer((HOST, PORT), LocalHandler)
-    print(f"Outreach Desk running at http://{HOST}:{PORT}  (Ctrl+C to stop)")
+    print(f"Prospect Studio running at http://{HOST}:{PORT}  (Ctrl+C to stop)")
     try:
         srv.serve_forever()
     except KeyboardInterrupt:
